@@ -1,0 +1,195 @@
+@charset "utf-8";
+/* css document */
+body{margin:0px; padding:0px;}
+body,td,th
+{font-size:9pt; font-family:arial,helvetica,sans-serif,宋体;color:#000;}
+a{font-family:宋体;}
+a:link{color:#035585;text-decoration: none;}
+a:visited{color:#035585;text-decoration: none;}
+a:hover,a:active{color:#035585;text-decoration:underline;}
+body,td,th
+{color:#333333;}
+img{border:0px;}
+html {
+	color: #000000;
+	background:#ffffff;
+	scrollbar-base-color:		#28ade5;
+	scrollbar-face-color:		#28ade5;
+	scrollbar-track-color:		#004f7c;
+	scrollbar-arrow-color:		#ffffff;
+	scrollbar-highlight-color:	#254baa;
+	scrollbar-3dlight-color:	#004f7a;
+	scrollbar-shadow-color:		#004f7c;
+	scrollbar-darkshadow-color:	#28ade5;	
+}
+body {
+	color: #000000;
+	background:#ffffff;
+	scrollbar-base-color:		#28ade5;
+	scrollbar-face-color:		#28ade5;
+	scrollbar-track-color:		#004f7c;
+	scrollbar-arrow-color:		#ffffff;
+	scrollbar-highlight-color:	#254baa;
+	scrollbar-3dlight-color:	#004f7a;
+	scrollbar-shadow-color:		#004f7c;
+	scrollbar-darkshadow-color:	#28ade5;	
+}
+input{outline:none;}
+select{outline:none;}
+#rightzw
+{width:1px;height:1px; overflow:hidden; position:absolute;left:0px; top:0px;}
+form{ margin:0px; padding:0px;}
+/*顶部使用*/
+.headtable
+{
+	background:url(../images/bgn1.jpg) repeat-x;width:100%;
+}
+.headtable th 
+{
+	color: #333;
+	height: 37px;
+	text-indent:35px;
+	font-size:12px;
+	text-align:left;
+	background:url(../images/bgn7.jpg) 5px 8px no-repeat;
+}
+.headtable th.links
+{background:none; text-align:center; text-indent:0px; font-size:12px; font-weight:normal;}
+
+/*列表使用*/
+.listtable
+{
+	background-color: #cccccc;width:100%; margin-top:-1px;
+}
+.listtable th 
+{
+	color: #5c5a5d;
+	height:35px;
+	background:url(../images/bgn5.jpg) repeat-x;
+	text-align:center;
+}
+.listtable td
+{
+	text-indent:5px;
+	line-height:35px;
+	background-color: #fff;
+}
+/*命令使用*/
+.cmdtable
+{
+	width:100%;
+}
+.cmdtable th 
+{
+	text-indent:10px;
+	color: #333;
+	height: 32px;
+	background:url(../images/bgn6.jpg) repeat-x;
+	text-align:left;
+	
+}
+.cmdtable th span
+{cursor:pointer;}
+/*表单使用*/
+.formtable
+{
+	background-color: #cccccc;
+	width:100%;
+}
+.formtable th 
+{
+	height: 29px;
+	background-color: #fff;
+	text-align:right;
+	font-weight:normal;
+	line-height:29px;
+	padding:2px;
+}
+.formtable td
+{
+	line-height: 29px;
+	background-color: #fff;
+	text-align:left;
+	padding:2px;
+}
+/*居中样式*/
+td.center,th.center
+{text-align:center; text-indent:0px;}
+/*翻页样式*/
+.pageinfo
+{text-align:center;color:#666;}
+.pageinfo a
+{color:#0000ff;}
+/*按钮*/
+.btn
+{
+	border:0px;
+	margin:0px;
+	font-size: 12px;
+	height: 22px;
+	line-height:20px;
+	background-color:#2495d1;
+	color:#fff;
+	cursor:pointer;
+	border: #708598 1px solid;
+}
+
+/*单独上传*/
+#showuploaddialogbg
+{width:100%; height:100px; overflow:hidden; position:absolute; left:0px; top:0px; z-index:2000; background-color:#000;
+filter:alpha(opacity=10);
+-moz-opacity:0.1;
+-khtml-opacity: 0.1;
+opacity: 0.1;}
+#showuploaddialog
+{width:370px; height:168px; overflow:hidden; position:absolute;left:50%; top:50%; z-index:2001; margin-left:-185px; margin-top:-84px;
+ background:url(../images/uploadbg.jpg) no-repeat;}
+#showuploaddialog .title
+{width:auto; height:25px; overflow:hidden; text-indent:25px; line-height:25px; color:#fff;}
+#showuploaddialog .close
+{width:44px; height:19px; overflow:hidden; position:absolute; right:4px; top:0px;
+ background:url(../images/uploadclose.jpg) no-repeat; cursor:pointer;}
+#showuploaddialog .content
+{width:360px; height:136px; overflow:hidden; position:absolute;left:5px; top:26px;}
+#showuploaddialog .content iframe
+{position:absolute;left:-4px; top:-4px;}
+
+/*类别收缩*/
+tr.closetr{display:none;}
+tr.opentr{}
+img.shousuo
+{cursor:pointer;}
+
+/*留言*/
+#guestbookform
+{width:700px; height:auto; overflow:hidden; margin:0px auto; position:relative;}
+#guestbookform .thelogo
+{position:absolute; left:0px; top:15px;}
+#guestbookform .title
+{width:100%; height:auto; padding-top:70px; padding-bottom:30px; letter-spacing:3px;
+ font-family:"微软雅黑"; line-height:40px; text-align:center; font-size:30px;}
+#guestbookform .top
+{width:100%; height:30px; overflow:hidden;}
+#guestbookform .top span
+{width:68%; height:30px; overflow:hidden; display:block; float:left;
+ font-family:"微软雅黑"; line-height:30px; font-family:"微软雅黑"; font-size:15px; color:#000;}
+#guestbookform .top em
+{width:30%; height:30px; overflow:hidden; display:block; float:right; text-align:right; font-style:normal;
+ font-family:"微软雅黑"; line-height:30px; font-family:"微软雅黑"; font-size:15px; color:#000;}
+#guestbookform .maxtable
+{width:698px; height:auto; margin:0px; padding:0px;}
+#guestbookform .maxtable
+{border-collapse:collapse; border:1px solid #000;}
+#guestbookform .maxtable tr
+{border-collapse:collapse; border:1px solid #000;}
+#guestbookform .maxtable tr td
+{border-collapse:collapse; padding:3px 5px; border:1px solid #000;  font-family:"微软雅黑"; line-height:20px; word-break:break-all;word-wrap:break-word;}
+#guestbookform .maxtable .thetable
+{border:none; width:698px;}
+#guestbookform .maxtable .thetable tr
+{border:none;}
+#guestbookform .maxtable .thetable tr td
+{border:none; padding-top:0px;}
+
+
+

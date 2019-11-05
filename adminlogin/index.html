@@ -1,0 +1,101 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+<!--[if ie 6]>
+<script type="text/javascript" src="dd_belatedpng_0.0.8a-min.js"></script>
+<script>
+	dd_belatedpng.fix('#loginbody');
+</script>
+<![endif]-->
+<script type="text/javascript"> 
+     window.onload=function(){
+		document.forms[0].user.focus();   
+	}
+	//验证字符串是否只含数字，字母，汉字和下划线 是则返回true 否则返回false
+	function ishf(str){
+		var reg = /[^a-za-z0-9\u4e00-\u9fa5_]/g;
+		if (reg.test(str)) {
+			return (false);
+		}
+		else {
+			return (true);
+		}
+	}
+	//登录验证
+	function cklogin(thefrom)
+	{
+		if(thefrom.user.value=="")
+		{
+			alert("用户名不能为空,请输入用户名！");
+			thefrom.user.focus();
+			return false;
+		}
+		else
+		{
+			if(!ishf(thefrom.user.value))
+			{
+				alert("用户名只能含有数字，字母和下划线 ,请重新输入用户名！");
+				thefrom.user.focus();
+				return false;
+			}
+		}
+		if(thefrom.pass.value=="")
+		{
+			alert("密码不能为空，请输入密码！");
+			thefrom.pass.focus();
+			return false;
+		}
+		else
+		{
+			if(!ishf(thefrom.pass.value))
+			{
+				alert("密码只能含有数字，字母和下划线 ,请重新输入密码！");
+				thefrom.pass.focus();
+				return false;
+			}
+		}
+		
+		if(thefrom.ckcode.value=="")
+		{
+			alert("验证码不能为空，请输入验证码！");
+			thefrom.ckcode.focus();
+			return false;
+		}
+		else
+		{
+			if(thefrom.ckcode.value.length!=5)
+			{
+				alert("验证码错误，请重新输入验证码！");
+				thefrom.ckcode.focus();
+				window.reload();
+				return false;
+			}
+		}
+	}
+	$(function(){
+		$("#thebg").css({"height":$(window).height()+"px"});
+	});
+</script>
+<title>后台管理系统</title>
+</head>
+<body>
+	<div id="thebg"><img src="images/loginbg.jpg" /><img src="images/loginbg2.jpg" height="1000" /></div>
+	<form action="admin/theaction.php" method="post" onSubmit="return cklogin(this);" >
+	<input type="hidden" name="action" value="login" />
+	<div id="loginbody">
+		<label class="lb_user">用户账户：</label>
+		<label class="lb_pass">用户密码：</label>
+		<label class="lb_ckcode">验证字符：</label>
+		
+		<input id="loginbtn" type="submit" value="登 录" hidefocus="true" />
+		<input type="text" name="user" value="" class="txt user" />
+		<input type="password" name="pass" value="" class="txt pass" />
+		<input type="text" name="ckcode" value="" class="txt ckcode" />
+		<img class="imgckcode" src="ckcode.php" onClick="this.src='ckcode.php?rad='+math.random();" width="100" height="26" alt="看不清楚请点击这里" />
+	</div>
+	</form>
+</body>
+</html>

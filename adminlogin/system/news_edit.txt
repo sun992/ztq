@@ -1,0 +1,74 @@
+﻿<?php 
+require_once '../../config.php';
+$nowmember=bll_admin::getadminnow();
+if ( count($nowmember)<1) {
+	header ( 'location:../' );
+	die();
+}
+$makedata = $theobj = bll_news::getone ( intval ( $_GET ['theid'] ) );
+$sortobj = bll_newssort::getone ( $theobj ['sort'] );
+$findid = $sortobj ['id'];
+$findid2 = $sortobj ['pid'];
+$sortobj2 = bll_newssort::getone ( $findid2 );
+$findid3 = count ( $sortobj2 ) > 0 ? $sortobj2 ['pid'] : 0;
+$sortobj3 = bll_newssort::getone ( $findid3 );
+$findid4 = count ( $sortobj3 ) > 0 ? $sortobj3 ['pid'] : 0;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/rightfrm.css" />
+<title>后台管理系统</title>
+<script type="text/javascript" src="../jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="../comm.js"></script>
+<script type="text/javascript" src="thisjs.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+  window.onload=function(){
+	  document.forms[0].title.focus();   
+  }
+  $(document).ready(function(){
+   var ue = UE.getEditor('editor');
+  })
+</script>
+</head>
+<body>
+<table  border="0" cellpadding="0" cellspacing="1" class="headtable">
+  <tr>
+    <th width="80%">修改信息(<?php echo $sortobj['sortname']; ?>)</th>
+    <th width="20%"><a href="news_list.php?theid=<?php echo $sortobj['id']; ?>">返回</a></th>
+  </tr>
+</table>
+<form name="theform" method="post" action="theaction.php" onSubmit="return ckTheNewsForm(this);">
+  <input type="hidden" name="action" value="editnews" />
+  <input type="hidden" name="theid" value="<?php echo $theobj['id']; ?>" />
+  <table border="0" cellpadding="0" cellspacing="1" class="formtable">
+    <tr>
+      <th width="10%">标题：</th>
+      <td width="90%"><input type="text" name="title" value="<?php echo $theobj['title']; ?>" size="40" />
+        <input type="submit" value=" 提 交 " class='btn' />
+          
+        <input type="reset" value=" 重 填 " class='btn' />
+      </td>
+    </tr>
+<!--这里是生成位置-->
+    <tr>
+      <th>编辑框：</th>
+      <td>
+      <script id="editor" type="text/plain" name="content" style="width:1024px;height:500px;"><?php echo $theobj['content']; ?></script>
+      </td>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+  <input type="hidden" name="oldname" value="" />
+  <input type="hidden" name="savename" value="" />
+  <input type="hidden" name="savepath" value="" />
+</form>
+<script type="text/javascript">$(function(){settablecolor('no');});</script>
+</body>
+</html>
